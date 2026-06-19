@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal - Task 11</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+
+        form {
+            width: 300px;
+        }
+
+        input, select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Community Event Registration</h1>
+
+    <form id="registrationForm">
+
+        <label>Name:</label>
+        <input type="text" name="name">
+        <span id="nameError" class="error"></span>
+
+        <br>
+
+        <label>Email:</label>
+        <input type="email" name="email">
+        <span id="emailError" class="error"></span>
+
+        <br>
+
+        <label>Select Event:</label>
+        <select name="event">
+            <option value="">-- Select Event --</option>
+            <option value="Music Festival">Music Festival</option>
+            <option value="Workshop on Baking">Workshop on Baking</option>
+            <option value="Food Fair">Food Fair</option>
+        </select>
+        <span id="eventError" class="error"></span>
+
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <div id="result"></div>
+
+    <script src="task11.js"></script>
+
+</body>
+</html>
