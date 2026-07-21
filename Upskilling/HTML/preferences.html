@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save User Preferences</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        select, button {
+            padding: 8px;
+            margin-top: 10px;
+        }
+        #message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let savedEvent =
+                localStorage.getItem("preferredEvent");
+            if (savedEvent) {
+                document.getElementById("eventType").value =
+                    savedEvent;
+            }
+        };
+        function savePreference() {
+            let selectedEvent =
+                document.getElementById("eventType").value;
+            localStorage.setItem(
+                "preferredEvent",
+                selectedEvent
+            );
+            sessionStorage.setItem(
+                "currentSelection",
+                selectedEvent
+            );
+            document.getElementById("message").innerHTML =
+                "Preference Saved Successfully!";
+        }
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+            document.getElementById("eventType").selectedIndex = 0;
+            document.getElementById("message").innerHTML =
+                "Preferences Cleared!";
+        }
+    </script>
+</head>
+<body>
+    <h2>Community Event Preference</h2>
+    <p>
+        Select your preferred event type.
+        The portal will remember your choice.
+    </p>
+    <label>Select Event Type:</label>
+    <br><br>
+    <select id="eventType">
+        <option value="">-- Select Event --</option>
+        <option value="Cultural Festival">
+            Cultural Festival
+        </option>
+        <option value="Sports Meet">
+            Sports Meet
+        </option>
+        <option value="Skill Workshop">
+            Skill Workshop
+        </option>
+        <option value="Health Camp">
+            Health Camp
+        </option>
+        <option value="Community Meeting">
+            Community Meeting
+        </option>
+    </select>
+    <br><br>
+    <button onclick="savePreference()">
+        Save Preference
+    </button>
+    <button onclick="clearPreferences()">
+        Clear Preferences
+    </button>
+    <p id="message"></p>
+</body>
+</html>

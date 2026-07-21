@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Video Invite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        video {
+            border: 2px solid black;
+        }
+        #status {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function videoReady() {
+            document.getElementById("status").innerHTML =
+                "Video ready to play";
+        }
+        window.onbeforeunload = function () {
+            return "You have not completed the registration form. Are you sure you want to leave?";
+        };
+    </script>
+</head>
+<body>
+    <h2>Community Event Invitation</h2>
+    <p>
+        Watch the promotional video to learn more about upcoming
+        community events and activities.
+    </p>
+    <video width="500"
+           controls
+           oncanplay="videoReady()">
+        <source src="community-event.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p id="status"></p>
+    <hr>
+    <h3>Quick Registration Interest Form</h3>
+    <form>
+        <label>Name:</label><br>
+        <input type="text" placeholder="Enter your name"><br><br>
+        <label>Email:</label><br>
+        <input type="email" placeholder="Enter your email"><br><br>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+</body>
+</html>
