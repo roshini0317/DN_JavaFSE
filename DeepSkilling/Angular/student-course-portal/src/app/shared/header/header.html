@@ -1,0 +1,46 @@
+<header class="portal-header">
+  <div class="brand">
+    {{ portalName }}
+  </div>
+
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/enroll-reactive"
+          routerLinkActive="active-link">
+          Reactive Form
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/enroll"
+          routerLinkActive="active-link">
+          Enroll
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a
+          routerLink="/courses"
+          routerLinkActive="active-link">
+          Courses
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/profile"
+          routerLinkActive="active-link">
+          Profile
+        </a>
+    </ul>
+  </nav>
+</header>

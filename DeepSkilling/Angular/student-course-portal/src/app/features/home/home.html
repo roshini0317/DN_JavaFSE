@@ -1,0 +1,35 @@
+<section class="home-container">
+<h1>{{ portalName }}</h1>
+<p>
+  Available Courses: {{ availableCourses }}
+</p>
+
+  <p>
+    Explore available courses, monitor academic progress,
+    and manage your enrollments from one place.
+  </p>
+<button class="enroll-btn" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+    Enroll Now
+  </button>
+  <p class="status-message">
+    {{ message }}
+  </p>
+  <div class="portal-stats">
+
+  <p>
+    Total Courses:
+    <strong>
+      {{ courseCount }}
+    </strong>
+  </p>
+
+</div>
+  <hr>
+  <h3>Course Search</h3>
+  <input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm">
+  <p>
+    Searching for: {{ searchTerm }}
+  </p>
+</section>
+<app-course-summary-widget>
+</app-course-summary-widget>

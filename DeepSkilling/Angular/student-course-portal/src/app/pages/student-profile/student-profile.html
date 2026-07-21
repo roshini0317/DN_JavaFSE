@@ -1,0 +1,31 @@
+<h2>
+  Enrolled Courses
+</h2>
+
+<div
+  *ngFor="
+    let course of
+    enrollmentService
+      .getEnrolledCourses()
+  ">
+
+  <p>
+
+    {{ course.name }}
+
+    ({{ course.code }})
+
+  </p>
+
+</div>
+
+<p
+  *ngIf="
+    enrollmentService
+      .getEnrolledCourses()
+      .length === 0
+  ">
+
+  No enrolled courses yet.
+
+</p>

@@ -1,0 +1,217 @@
+<section class="reactive-form-container">
+
+  <h2>
+    Reactive Enrollment Form
+  </h2>
+
+  <form
+    [formGroup]="enrollForm"
+    (ngSubmit)="onSubmit()">
+
+    <!-- Name -->
+
+    <div class="form-group">
+
+      <label>
+        Student Name
+      </label>
+
+      <input
+        type="text"
+        formControlName="studentName">
+
+      <span
+        class="error"
+        *ngIf="
+          enrollForm.get('studentName')
+          ?.touched &&
+          enrollForm.get('studentName')
+          ?.errors?.['required']
+        ">
+
+        Name is required
+
+      </span>
+
+      <span
+        class="error"
+        *ngIf="
+          enrollForm.get('studentName')
+          ?.errors?.['minlength']
+        ">
+
+        Minimum 3 characters
+
+      </span>
+
+    </div>
+
+    <!-- Email -->
+
+    <div class="form-group">
+
+  <label>
+    Student Email
+  </label>
+
+  <input
+    type="email"
+    formControlName="studentEmail">
+
+  <span
+    class="error"
+    *ngIf="
+      enrollForm.get('studentEmail')?.touched &&
+      enrollForm.get('studentEmail')?.errors?.['required']
+    ">
+
+    Email is required
+
+  </span>
+
+  <span
+    class="error"
+    *ngIf="
+      enrollForm.get('studentEmail')?.touched &&
+      enrollForm.get('studentEmail')?.errors?.['email']
+    ">
+
+    Enter a valid email address
+
+  </span>
+
+  <span
+    class="error"
+    *ngIf="
+      enrollForm.get('studentEmail')?.touched &&
+      enrollForm.get('studentEmail')?.errors?.['emailTaken']
+    ">
+
+    Email already exists
+
+  </span>
+
+  <span
+    class="pending"
+    *ngIf="
+      enrollForm.get('studentEmail')?.pending
+    ">
+
+    Checking email availability...
+
+  </span>
+
+</div>
+
+    <!-- Course -->
+
+    <div class="form-group">
+
+      <label>
+        Course ID
+      </label>
+
+      <input
+        type="text"
+        formControlName="courseId">
+
+      <span
+        class="error"
+        *ngIf="
+          enrollForm.get('courseId')
+          ?.errors?.['noCourseCode']
+        ">
+
+        Course code starting with XX
+        is not allowed
+
+      </span>
+
+    </div>
+
+    <!-- Semester -->
+
+    <div class="form-group">
+
+      <label>
+        Preferred Semester
+      </label>
+
+      <select
+        formControlName="preferredSemester">
+
+        <option value="Odd">
+          Odd
+        </option>
+
+        <option value="Even">
+          Even
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- Terms -->
+
+    <div class="checkbox-group">
+
+      <input
+        type="checkbox"
+        formControlName="agreeToTerms">
+
+      <label>
+        Agree To Terms
+      </label>
+
+    </div>
+
+    <!-- FormArray -->
+
+    <div class="dynamic-courses">
+
+      <h3>
+        Additional Courses
+      </h3>
+
+      <button
+        type="button"
+        (click)="addCourse()">
+
+        Add Another Course
+
+      </button>
+
+      <div
+  *ngFor="
+    let ctrl of additionalCourseControls;
+    let i = index
+  ">
+
+        <input
+          [formControl]="ctrl"
+          placeholder="Course Code">
+
+        <button
+          type="button"
+          (click)="removeCourse(i)">
+
+          Remove
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="enrollForm.invalid">
+
+      Submit
+
+    </button>
+
+  </form>
+
+</section>

@@ -1,0 +1,48 @@
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #0f766e;
+  color: white;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.portal-header ul {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.portal-header li {
+  list-style: none;
+}
+
+.portal-header a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease,
+              transform 0.2s ease;
+}
+
+.portal-header a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.portal-header a:active {
+  transform: scale(0.98);
+}
+
+.active-link {
+  background-color: white;
+  color: #0f766e !important;
+}
