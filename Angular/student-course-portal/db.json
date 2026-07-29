@@ -1,0 +1,53 @@
+{
+  "courses": [
+    {
+      "id": "2",
+      "name": "TypeScript Basics",
+      "code": "TS102",
+      "credits": 4,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "3",
+      "name": "RxJS Essentials",
+      "code": "RX103",
+      "credits": 3,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": "4",
+      "name": "Advanced Angular",
+      "code": "ANG201",
+      "credits": 5,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "5",
+      "name": "Web APIs",
+      "code": "WEB301",
+      "credits": 2,
+      "gradeStatus": "passed"
+    },
+    {
+      "name": "React Fundamentals",
+      "code": "RCT101",
+      "credits": 4,
+      "gradeStatus": "passed",
+      "id": "vfTckF5kRh8"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Roshini"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "courseId": 1,
+      "studentId": 1
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
